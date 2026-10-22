@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Najma Shanija — Data Analyst, BI Analyst & ML Engineer. Power BI, Microsoft Fabric, Python, NLP, LLM/RAG/Agentic AI. Based in Dubai, UAE."/>
+  <title>Najma Shanija — Data Analyst | BI Analyst | ML Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#0b0d12;--surface:#13161f;--surface2:#191d29;--surface3:#1f2435;
+      --border:#222736;--border-soft:#191d29;
+      --text:#eef0f6;--text2:#8892aa;--text3:#4a5068;
+      --c1:#38bdf8;--c2:#818cf8;--c3:#34d399;--c4:#fb923c;
+      --g1:rgba(56,189,248,.09);--g2:rgba(129,140,248,.09);--g3:rgba(52,211,153,.09);--g4:rgba(251,146,60,.09);
+      --r:14px;--font:'Sora',sans-serif;--mono:'JetBrains Mono',monospace;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(56,189,248,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.018) 1px,transparent 1px);background-size:56px 56px;pointer-events:none;z-index:0}
+
+    /* GALLERY */
+    .gallery-wrap{position:relative;overflow:hidden;border-radius:var(--r) var(--r) 0 0}
+    .gallery-track{display:flex;transition:transform .35s cubic-bezier(.4,0,.2,1)}
+    .gallery-track img{width:100%;flex-shrink:0;object-fit:contain;max-height:340px;background:#0b0d12}
+    .gallery-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(11,13,18,.72);border:1px solid var(--border);color:var(--text);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.9rem;transition:all .2s;z-index:5}
+    .gallery-nav:hover{background:rgba(56,189,248,.18);border-color:var(--c1);color:var(--c1)}
+    .gallery-prev{left:10px}.gallery-next{right:10px}
+    .gallery-dots{display:flex;justify-content:center;gap:.35rem;padding:.55rem 0 .2rem;background:#0b0d12}
+    .gdot{width:6px;height:6px;border-radius:50%;background:var(--text3);cursor:pointer;transition:all .2s}
+    .gdot.active{background:var(--c1);width:16px;border-radius:3px}
+    .gallery-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(11,13,18,.85));padding:.4rem .8rem .5rem;font-family:var(--mono);font-size:.62rem;color:var(--text3);letter-spacing:.04em}
+
+    /* NAV */
+    nav{position:sticky;top:0;z-index:200;background:rgba(11,13,18,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+    .nav-logo{font-family:var(--mono);font-size:.76rem;color:var(--c1);letter-spacing:.04em}
+    .nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center}
+    .nav-links a{font-size:.78rem;font-weight:300;color:var(--text2);text-decoration:none;letter-spacing:.04em;transition:color .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--c1)}
+    .nav-cv{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.72rem;color:#000;background:var(--c1);padding:.32rem .85rem;border-radius:7px;text-decoration:none;font-weight:500;transition:all .2s;white-space:nowrap}
+    .nav-cv:hover{background:#7dd3fc;transform:translateY(-1px)}
+
+    .container{max-width:980px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+    section{padding:5.5rem 0}
+    section+section{border-top:1px solid var(--border-soft)}
+    .sec-label{font-family:var(--mono);font-size:.66rem;color:var(--c1);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.5rem}
+    h2{font-size:1.7rem;font-weight:300;letter-spacing:-.02em}
+    .section-header{margin-bottom:3rem}
+
+    /* HERO */
+    #hero{padding:7.5rem 0 5rem;position:relative}
+    .hero-glow{position:absolute;top:-80px;left:-140px;width:700px;height:700px;background:radial-gradient(circle,rgba(56,189,248,.055) 0%,transparent 65%);pointer-events:none}
+    .hero-glow2{position:absolute;top:100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(129,140,248,.04) 0%,transparent 65%);pointer-events:none}
+    .badge-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.4rem;opacity:0;animation:fadeUp .7s ease .1s forwards}
+    .hero-badge{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;padding:.3rem .75rem;border-radius:99px}
+    .badge-avail{background:var(--g1);border:1px solid rgba(56,189,248,.22);color:var(--c1)}
+    .badge-genai{background:var(--g4);border:1px solid rgba(251,146,60,.22);color:var(--c4)}
+    .hdot{width:6px;height:6px;background:currentColor;border-radius:50%;animation:blink 2s ease infinite;flex-shrink:0}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+    h1{font-size:clamp(2.8rem,5.5vw,4.2rem);font-weight:200;letter-spacing:-.038em;line-height:1.06;margin-bottom:.4rem;opacity:0;animation:fadeUp .7s ease .2s forwards}
+    .name-hi{font-weight:600;color:var(--c1)}
+    .hero-titles{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem;opacity:0;animation:fadeUp .7s ease .3s forwards}
+    .hero-title-pill{font-family:var(--mono);font-size:.72rem;padding:.3rem .75rem;border-radius:6px;background:var(--surface2);border:1px solid var(--border);color:var(--text2);letter-spacing:.04em}
+    .hero-desc{font-size:.96rem;color:var(--text2);max-width:600px;font-weight:300;margin-bottom:2rem;line-height:1.82;opacity:0;animation:fadeUp .7s ease .4s forwards}
+    .hero-desc strong{color:var(--text);font-weight:500}
+    .hero-contacts{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2rem;opacity:0;animation:fadeUp .7s ease .5s forwards}
+    .cpill{display:inline-flex;align-items:center;gap:.42rem;font-family:var(--mono);font-size:.7rem;color:var(--text2);padding:.36rem .8rem;background:var(--surface);border:1px solid var(--border);border-radius:7px;text-decoration:none;transition:all .2s}
+    .cpill:hover{color:var(--c1);border-color:rgba(56,189,248,.32);background:var(--g1)}
+    .hero-cta{display:flex;gap:.9rem;flex-wrap:wrap;opacity:0;animation:fadeUp .7s ease .6s forwards}
+    .btn{display:inline-flex;align-items:center;gap:.45rem;padding:.7rem 1.5rem;border-radius:9px;font-size:.84rem;font-weight:500;text-decoration:none;transition:all .2s;cursor:pointer;border:none;font-family:var(--font)}
+    .btn-p{background:var(--c1);color:#001420}
+    .btn-p:hover{background:#7dd3fc;transform:translateY(-2px);box-shadow:0 8px 28px rgba(56,189,248,.22)}
+    .btn-s{background:var(--surface);color:var(--text);border:1px solid var(--border)}
+    .btn-s:hover{border-color:var(--c1);color:var(--c1);transform:translateY(-2px)}
+    .btn-dl{background:var(--surface2);color:var(--c3);border:1px solid rgba(52,211,153,.25)}
+    .btn-dl:hover{background:var(--g3);transform:translateY(-2px)}
+
+    /* ABOUT */
+    .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:start}
+    .about-text p{color:var(--text2);font-weight:300;font-size:.93rem;margin-bottom:1rem;line-height:1.82}
+    .about-text strong{color:var(--text);font-weight:500}
+    .about-stats{display:flex;flex-direction:column;gap:.85rem}
+    .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem 1.4rem;display:flex;flex-direction:column;gap:.15rem;transition:border-color .2s}
+    .stat-card:hover{border-color:rgba(56,189,248,.25)}
+    .stat-n{font-size:1.6rem;font-weight:200;letter-spacing:-.04em;color:var(--c1)}
+    .stat-l{font-size:.7rem;color:var(--text3);font-family:var(--mono)}
+
+    /* STACK / KEYWORDS */
+    .stack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
+    .sg{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1.3rem;transition:border-color .2s,box-shadow .2s}
+    .sg:hover{border-color:rgba(56,189,248,.2);box-shadow:0 4px 22px rgba(56,189,248,.04)}
+    .sg-title{font-size:.66rem;font-family:var(--mono);color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.8rem}
+    .tags{display:flex;flex-wrap:wrap;gap:.35rem}
+    .tag{font-size:.72rem;padding:.2rem .55rem;border-radius:5px;background:#151820;color:#6a7490;font-family:var(--mono);border:1px solid var(--border);transition:all .2s}
+    .tag.a1{background:var(--g1);color:var(--c1);border-color:rgba(56,189,248,.16)}
+    .tag.a2{background:var(--g2);color:var(--c2);border-color:rgba(129,140,248,.16)}
+    .tag.a3{background:var(--g3);color:var(--c3);border-color:rgba(52,211,153,.16)}
+    .tag.a4{background:var(--g4);color:var(--c4);border-color:rgba(251,146,60,.16)}
+
+    /* EXPERIENCE */
+    .tl-item{display:grid;grid-template-columns:160px 1fr;gap:2rem;padding:2.4rem 0;border-bottom:1px solid var(--border-soft)}
+    .tl-item:last-child{border-bottom:none}
+    .tl-meta{display:flex;flex-direction:column;gap:.4rem}
+    .tl-date{font-family:var(--mono);font-size:.68rem;color:var(--text3);line-height:1.5}
+    .tl-co{font-size:.76rem;color:var(--c2);font-family:var(--mono)}
+    .tl-badge{display:inline-block;font-family:var(--mono);font-size:.6rem;padding:.18rem .5rem;border-radius:5px;margin-top:.3rem}
+    .tl-badge.current{background:rgba(52,211,153,.12);color:var(--c3);border:1px solid rgba(52,211,153,.2)}
+    .tl-badge.past{background:var(--surface2);color:var(--text3);border:1px solid var(--border)}
+    .tl-role{font-size:1rem;font-weight:500;color:var(--text);margin-bottom:.9rem}
+    .tl-body{display:flex;flex-direction:column;gap:.5rem}
+    .tl-pt{font-size:.84rem;color:var(--text2);font-weight:300;padding-left:1rem;position:relative;line-height:1.65}
+    .tl-pt::before{content:'';position:absolute;left:0;top:.58em;width:4px;height:4px;background:var(--c1);border-radius:50%}
+    .tl-pt strong{color:var(--text);font-weight:500}
+    .tl-tech{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.6rem;padding-left:1rem}
+    .tl-tech span{font-size:.65rem;padding:.15rem .45rem;border-radius:4px;background:var(--surface2);color:var(--text3);font-family:var(--mono);border:1px solid var(--border)}
+
+    /* PROJECTS */
+    .proj-tabs{display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:2.6rem;border-bottom:1px solid var(--border-soft);padding-bottom:1.3rem}
+    .ptab{font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;padding:.42rem 1rem;border-radius:8px;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text3);transition:all .2s;display:flex;align-items:center;gap:.45rem}
+    .ptab:hover{color:var(--text)}
+    .ptab.active{color:#05080f;border-color:transparent;font-weight:500}
+    .ptab[data-tab="bi"].active{background:var(--c1)}
+    .ptab[data-tab="ml"].active{background:var(--c2)}
+    .ptab[data-tab="nlp"].active{background:var(--c3)}
+    .ptab[data-tab="gen"].active{background:var(--c4)}
+    .tdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+    .ptab[data-tab="bi"] .tdot{background:var(--c1)} .ptab[data-tab="ml"] .tdot{background:var(--c2)}
+    .ptab[data-tab="nlp"] .tdot{background:var(--c3)} .ptab[data-tab="gen"] .tdot{background:var(--c4)}
+    .ptab.active .tdot{background:#05080f}
+    .proj-panel{display:none}.proj-panel.active{display:block}
+    .cat-header{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+    .cat-icon{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+    .cat-title{font-size:1.05rem;font-weight:500}
+    .cat-sub{font-size:.78rem;color:var(--text2);font-weight:300;margin-top:.15rem}
+
+    .proj-list{display:flex;flex-direction:column;gap:.7rem}
+    .proj-row{background:var(--surface);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;gap:1.2rem;padding:.95rem 1.3rem;cursor:pointer;transition:border-color .2s,transform .2s,box-shadow .2s;position:relative;overflow:hidden;user-select:none}
+    .proj-row::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:3px 0 0 3px;opacity:0;transition:opacity .2s}
+    .proj-row:hover{transform:translateX(5px);box-shadow:0 4px 24px rgba(0,0,0,.25)}
+    .proj-row:hover::before{opacity:1}
+    .bi-row:hover{border-color:rgba(56,189,248,.32)} .bi-row::before{background:var(--c1)} .bi-row .pl{color:var(--c1)}
+    .ml-row:hover{border-color:rgba(129,140,248,.32)} .ml-row::before{background:var(--c2)} .ml-row .pl{color:var(--c2)}
+    .nlp-row:hover{border-color:rgba(52,211,153,.32)} .nlp-row::before{background:var(--c3)} .nlp-row .pl{color:var(--c3)}
+    .gen-row:hover{border-color:rgba(251,146,60,.32)} .gen-row::before{background:var(--c4)} .gen-row .pl{color:var(--c4)}
+    .pl{width:32px;height:32px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.8rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);flex-shrink:0}
+    .proj-thumb{width:82px;height:52px;border-radius:7px;overflow:hidden;background:var(--surface2);flex-shrink:0;border:1px solid var(--border)}
+    .proj-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    .proj-thumb-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--text3)}
+    .proj-info{flex:1;min-width:0}
+    .proj-name{font-size:.9rem;font-weight:500;color:var(--text);margin-bottom:.22rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .proj-tags{display:flex;gap:.28rem;flex-wrap:wrap}
+    .proj-tag{font-size:.62rem;padding:.12rem .42rem;border-radius:4px;font-family:var(--mono);background:rgba(255,255,255,.035);color:var(--text3);border:1px solid var(--border)}
+    .proj-arrow{color:var(--text3);font-size:.85rem;margin-left:auto;flex-shrink:0;transition:color .2s,transform .2s}
+    .proj-row:hover .proj-arrow{transform:translateX(3px)}
+    .bi-row:hover .proj-arrow{color:var(--c1)} .ml-row:hover .proj-arrow{color:var(--c2)}
+    .nlp-row:hover .proj-arrow{color:var(--c3)} .gen-row:hover .proj-arrow{color:var(--c4)}
+
+    /* MODAL */
+    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:500;display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;pointer-events:none;transition:opacity .25s;backdrop-filter:blur(8px)}
+    .modal-overlay.open{opacity:1;pointer-events:all}
+    .modal{background:var(--surface);border:1px solid var(--border);border-radius:18px;width:100%;max-width:760px;max-height:90vh;overflow-y:auto;transform:translateY(22px) scale(.96);transition:transform .28s cubic-bezier(.34,1.56,.64,1)}
+    .modal-overlay.open .modal{transform:translateY(0) scale(1)}
+    .modal-img-wrap{width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:16px 16px 0 0;background:var(--surface2);border-bottom:1px solid var(--border);position:relative}
+    .modal-img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+    .modal-img-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;color:var(--text3);font-family:var(--mono);font-size:.8rem}
+    .modal-img-ph span{font-size:3rem}
+    .modal-badge{position:absolute;top:14px;left:14px;font-family:var(--mono);font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;padding:.26rem .68rem;border-radius:6px;backdrop-filter:blur(10px)}
+    .modal-close{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:8px;background:rgba(0,0,0,.5);border:1px solid var(--border);color:var(--text2);font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;backdrop-filter:blur(6px);z-index:2}
+    .modal-close:hover{color:var(--text);background:rgba(255,255,255,.1)}
+    .modal-body{padding:1.8rem}
+    .modal-label{font-family:var(--mono);font-size:.63rem;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.35rem}
+    .modal-title{font-size:1.18rem;font-weight:500;margin-bottom:.9rem;line-height:1.3}
+    .modal-desc{font-size:.87rem;color:var(--text2);font-weight:300;line-height:1.78;margin-bottom:1.3rem}
+    .modal-desc strong{color:var(--text);font-weight:500}
+    .modal-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:1.6rem}
+    .modal-actions{display:flex;gap:.8rem;flex-wrap:wrap}
+    .modal-btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.75rem;text-decoration:none;padding:.48rem 1.1rem;border-radius:8px;transition:all .2s;cursor:pointer;border:none}
+    .modal-btn-gh{background:var(--surface2);color:var(--text2);border:1px solid var(--border)}
+    .modal-btn-gh:hover{color:var(--c1);border-color:rgba(56,189,248,.32);background:var(--g1)}
+    .modal-btn-live{color:#05080f;font-weight:500}
+    .modal-btn-live:hover{opacity:.85;transform:translateY(-1px)}
+    .modal-note{font-size:.75rem;color:var(--text3);font-family:var(--mono);margin-top:.8rem}
+
+    /* CERTS */
+    .certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.9rem}
+    .cert{display:flex;align-items:center;gap:1rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem 1.3rem;transition:border-color .2s}
+    .cert:hover{border-color:rgba(129,140,248,.25)}
+    .cert-badge{width:38px;height:38px;background:var(--g2);border:1px solid rgba(129,140,248,.18);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .cert-name{font-size:.86rem;font-weight:400;color:var(--text)}
+    .cert-org{font-size:.7rem;color:var(--text3);font-family:var(--mono)}
+
+    /* CONTACT */
+    .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+    .contact-info p{font-size:.92rem;color:var(--text2);font-weight:300;margin-bottom:1.8rem;line-height:1.8}
+    .clinks{display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.8rem}
+    .clink{display:flex;align-items:center;gap:.8rem;font-size:.83rem;color:var(--text2);text-decoration:none;transition:color .2s}
+    .clink:hover{color:var(--c1)}
+    .clink-ic{width:36px;height:36px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.82rem;flex-shrink:0;transition:border-color .2s}
+    .clink:hover .clink-ic{border-color:rgba(56,189,248,.3)}
+    .cf{display:flex;flex-direction:column;gap:.95rem}
+    .fg{display:flex;flex-direction:column;gap:.36rem}
+    label{font-size:.66rem;color:var(--text3);font-family:var(--mono);letter-spacing:.07em}
+    input,textarea{padding:.7rem 1rem;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text);font-family:var(--font);font-size:.875rem;font-weight:300;transition:border-color .2s,box-shadow .2s;outline:none;resize:vertical}
+    input::placeholder,textarea::placeholder{color:var(--text3)}
+    input:focus,textarea:focus{border-color:rgba(56,189,248,.35);box-shadow:0 0 0 3px rgba(56,189,248,.07)}
+    textarea{min-height:110px}
+
+    footer{border-top:1px solid var(--border);padding:2rem 0;text-align:center;font-size:.68rem;color:var(--text3);font-family:var(--mono);position:relative;z-index:1}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    @media(max-width:740px){
+      nav{padding:0 1.2rem}.nav-links{gap:.9rem}.nav-cv{display:none}
+      .container{padding:0 1.2rem}section{padding:3.5rem 0}
+      #hero{padding:5rem 0 3.5rem}
+      .about-grid,.contact-wrap{grid-template-columns:1fr;gap:2.5rem}
+      .tl-item{grid-template-columns:1fr;gap:.35rem}
+      .stack-grid{grid-template-columns:1fr 1fr}
+      .certs-grid{grid-template-columns:1fr}
+      .proj-thumb{display:none}
+    }
+    @media(max-width:420px){.stack-grid{grid-template-columns:1fr}.nav-links{gap:.6rem}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">Portfolio</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#stack">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="NAJMA_SHANIJA_CV.pdf" download class="nav-cv">⬇ Download CV</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-glow"></div><div class="hero-glow2"></div>
+  <div class="badge-row">
+    <span class="hero-badge badge-avail"><span class="hdot"></span>Open to Opportunities · Dubai, UAE</span>
+  </div>
+  <h1><span class="name-hi">Najma Shanija</span></h1>
+  <div class="hero-titles">
+    <span class="hero-title-pill">Data Analyst</span>
+    <span class="hero-title-pill">BI Analyst</span>
+    <span class="hero-title-pill">ML Engineer</span>
+    <span class="hero-title-pill">Microsoft Fabric Specialist</span>
+  </div>
+  <p class="hero-desc">
+    Results-driven <strong>Data Analyst &amp; BI Specialist</strong> with hands on UAE experience in translating complex datasets into strategic business intelligence. Expert in <strong>Power BI, Microsoft Fabric, Python,SQL,Excel</strong>, and <strong>SharePoint integration</strong> — building end-to-end analytics pipelines, predictive ML models, and NLP classifiers that drive operational efficiency.LLM / RAG / Agentic AI Enthusiast pushing the frontier of intelligent automation.
+  </p>
+  <div class="hero-contacts">
+    <a href="mailto:najmansar15@gmail.com" class="cpill">✉ najmansar15@gmail.com</a>
+    <a href="tel:+971555875520" class="cpill">📱 +971 555 875 520</a>
+    <a href="https://www.linkedin.com/in/najma-shanija/" target="_blank" class="cpill">in LinkedIn</a>
+    <a href="https://github.com/najupshan" target="_blank" class="cpill">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      GitHub
+    </a>
+  
+  </div>
+  <div class="hero-cta">
+    <a href="#projects" class="btn btn-p">View Projects ↓</a>
+    <a href="#contact" class="btn btn-s">Get in Touch</a>
+    <a href="NAJMA_SHANIJA_CV.pdf" download class="btn btn-dl">⬇ Download CV</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header reveal">
+    <div class="sec-label">About</div>
+    <h2>Who I am</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>I'm <strong>Najma Shanija</strong>, a Data Analyst and BI Specialist who builds the full data stack — from raw API ingestion into <strong>Microsoft Fabric Lakehouse</strong>, through automated ETL pipelines, to production Power BI dashboards served live to stakeholders via SharePoint.</p>
+      <p>At ABL Technical I designed and deployed <strong>15+ Power BI dashboards</strong> using Microsoft Fabric Semantic Models and OneLake, integrated with SharePoint Lists, cutting manual reporting time by <strong>40%</strong>. I built ML models for predictive maintenance and issue classification, and engineered NLP pipelines using BERT for automated equipment issue categorisation.</p>
+      <p>Beyond analytics, I'm deeply interested in <strong>Generative AI, LLMs, RAG pipelines, and Agentic AI</strong> — actively exploring how intelligent agents can transform data workflows and business decision-making.</p>
+      <p>Based in Al Warqa, Dubai on a Spouse Visa. <strong>Immediately available.</strong></p>
+    </div>
+    <div class="about-stats reveal">
+      <div class="stat-card"><span class="stat-n">15+</span><span class="stat-l">// Power BI dashboards deployed</span></div>
+      <div class="stat-card"><span class="stat-n">40%</span><span class="stat-l">// reduction in manual reporting time</span></div>
+      <div class="stat-card"><span class="stat-n">10K+</span><span class="stat-l">// records processed daily via ETL</span></div>
+      <div class="stat-card"><span class="stat-n">85%</span><span class="stat-l">// forecast accuracy — delay prediction model</span></div>
+      <div class="stat-card"><span class="stat-n">90%</span><span class="stat-l">// data consistency across 50+ vendor datasets</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header reveal">
+    <div class="sec-label">Experience</div>
+    <h2>Where I've worked</h2>
+  </div>
+
+  <!-- ABL Technical -->
+  <div class="tl-item reveal">
+    <div class="tl-meta">
+      <div class="tl-date">Jan 2025 – Aug 2026</div>
+      <div class="tl-co">ABL Technical</div>
+      <span class="tl-badge past">●Data Analyst & ML </span>
+    </div>
+    <div class="tl-body">
+      <div class="tl-role">Data Analyst</div>
+      <div class="tl-pt"><strong>End-to-end data pipeline:</strong> Fetched live project data via APIs, ingested and stored into <strong>Microsoft Fabric Lakehouse (OneLake)</strong>, performed primary data cleaning using Python (Pandas, NumPy) before loading into the Lakehouse.</div>
+      <div class="tl-pt"><strong>Pipeline automation:</strong> Built automated ETL pipelines using <strong>SQL, Azure Data Factory, and Fabric Dataflows Gen2</strong>, ingesting from 3+ disparate sources and processing 10,000+ records daily with zero manual intervention.</div>
+      <div class="tl-pt"><strong>Power BI dashboards:</strong> Designed and deployed 15+ dashboards using <strong>Microsoft Fabric Semantic Models</strong> integrated with SharePoint Lists — including Checklist Analysis, Issue Analysis, S-Curve Progress, and Project Completion Forecasting dashboards.</div>
+      <div class="tl-pt"><strong>Power BI Service & Gateway:</strong> Configured scheduled dataset refresh via <strong>Power BI Service using On-Premises Gateway</strong>, ensuring dashboards are always live for 15+ stakeholders.</div>
+      <div class="tl-pt"><strong>SharePoint deployment:</strong> Deployed all dashboards and reports to <strong>SharePoint</strong> so stakeholders can access live analytics without needing Power BI licenses.</div>
+      <div class="tl-pt"><strong>Fabric Semantic Models:</strong> Built optimised relationships and DAX measures for planned vs actual, variance analysis, and KPI tracking across projects.</div>
+      <div class="tl-pt"><strong>ML — Manufacturer prediction:</strong> Trained classification models (Random Forest, XGBoost) to predict and standardise missing manufacturer data across 50+ vendor datasets — improving data consistency by 90%.</div>
+      <div class="tl-pt"><strong>ML — Issue prediction:</strong> Developed predictive maintenance models using Python &amp; Scikit-learn within Fabric notebooks, improving equipment uptime by 25% and reducing downtime costs.</div>
+      <div class="tl-pt"><strong>NLP — Issue classification:</strong> Implemented BERT-based issue classification to automate equipment issue categorisation, reducing issue resolution time by 30%.</div>
+      <div class="tl-pt"><strong>Forecasting:</strong> Created time-series models (LSTM, Prophet) for project delay prediction, achieving ~85% forecast accuracy and enabling proactive risk mitigation.</div>
+      <div class="tl-tech">
+        <span>Microsoft Fabric</span><span>OneLake</span><span>Power BI</span><span>DAX</span><span>SharePoint</span>
+        <span>Azure Data Factory</span><span>Dataflows Gen2</span><span>Python</span><span>Pandas</span>
+        <span>Scikit-learn</span><span>BERT</span><span>LSTM</span><span>Prophet</span><span>XGBoost</span><span>REST API</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rubixe -->
+  <div class="tl-item reveal">
+    <div class="tl-meta">
+      <div class="tl-date">2023 – 2024</div>
+      <div class="tl-co">Rubixe AI Consulting</div>
+      <span class="tl-badge past">Internship</span>
+    </div>
+    <div class="tl-body">
+      <div class="tl-role">Data Science Intern</div>
+      <div class="tl-pt">Performed end-to-end data analysis using <strong>SQL, Python, Power BI, Tableau, and Excel</strong> for a high-end capital firm, uncovering portfolio insights for senior management.</div>
+      <div class="tl-pt">Built and presented <strong>ML models for fund managers</strong>, translating complex model outputs into actionable investment strategies using clear visualisations and executive reports.</div>
+      <div class="tl-tech"><span>SQL</span><span>Python</span><span>Power BI</span><span>Tableau</span><span>Excel</span><span>Scikit-learn</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS / TECH STACK -->
+<section id="stack">
+  <div class="section-header reveal">
+    <div class="sec-label">Tech Stack</div>
+    <h2>Skills &amp; technologies</h2>
+  </div>
+  <div class="stack-grid">
+    <div class="sg reveal">
+      <div class="sg-title">Business Intelligence</div>
+      <div class="tags">
+        <span class="tag a1">Power BI</span><span class="tag a1">DAX</span><span class="tag a1">Power BI Service</span>
+        <span class="tag a1">Tableau</span><span class="tag a1">Data Modeling</span><span class="tag a1">KPI Dashboards</span>
+        <span class="tag a1">Semantic Models</span><span class="tag a1">S-Curve Analysis</span>
+      </div>
+    </div>
+    <div class="sg reveal">
+      <div class="sg-title">Microsoft Fabric &amp; Cloud</div>
+      <div class="tags">
+        <span class="tag a1">Microsoft Fabric</span><span class="tag a1">OneLake</span>
+        <span class="tag a1">Lakehouse</span><span class="tag a1">Dataflows Gen2</span>
+        <span class="tag a1">Azure Data Factory</span><span class="tag a1">Azure</span>
+        <span class="tag a1">On-Premises Gateway</span><span class="tag a1">GCP</span>
+      </div>
+    </div>
+    <div class="sg reveal">
+      <div class="sg-title">Data Integration &amp; ETL</div>
+      <div class="tags">
+        <span class="tag a1">SharePoint</span><span class="tag a1">REST API</span>
+        <span class="tag a1">ETL / ELT</span><span class="tag a1">SQL</span>
+        <span class="tag a1">Excel Online</span><span class="tag a1">Data Pipeline</span>
+        <span class="tag a1">Data Connections</span><span class="tag a1">Spark</span>
+      </div>
+    </div>
+    <div class="sg reveal">
+      <div class="sg-title">Python &amp; Data Engineering</div>
+      <div class="tags">
+        <span class="tag a1">Python</span><span class="tag a1">Pandas</span>
+        <span class="tag a1">NumPy</span><span class="tag a1">Scikit-learn</span>
+        <span class="tag a1">Data Cleaning</span><span class="tag a1">Imputation</span>
+        <span class="tag a1">Jupyter</span><span class="tag a1">Fabric Notebooks</span>
+      </div>
+    </div>
+    <div class="sg reveal">
+      <div class="sg-title">Machine Learning</div>
+      <div class="tags">
+        <span class="tag a2">Random Forest</span><span class="tag a2">XGBoost</span>
+        <span class="tag a2">LSTM</span><span class="tag a2">Prophet</span>
+        <span class="tag a2">ARIMA</span><span class="tag a2">Scikit-learn</span>
+        <span class="tag a2">Predictive Maintenance</span><span class="tag a2">Forecasting</span>
+      </div>
+    </div>
+    <div class="sg reveal">
+      <div class="sg-title">NLP &amp; Text Analytics</div>
+      <div class="tags">
+        <span class="tag a2">BERT</span><span class="tag a2">TF-IDF</span>
+        <span class="tag a2">CBOW</span><span class="tag a2">Text Classification</span>
+        <span class="tag a2">Issue Classification</span><span class="tag a2">Transformers</span>
+        <span class="tag a2">Hugging Face</span>
+      </div>
+    </div>
+    <div class="sg reveal">
+      <div class="sg-title">Generative AI &amp; LLMs</div>
+      <div class="tags">
+        <span class="tag a4">LLMs</span><span class="tag a4">RAG</span>
+        <span class="tag a4">Agentic AI</span><span class="tag a4">Prompt Engineering</span>
+        <span class="tag">LangChain</span><span class="tag a4">Vector Databases</span>
+        <span class="tag a4">Generative AI</span><span class="tag a4">AI Automation</span>
+      </div>
+    </div>
+    <div class="sg reveal">
+      <div class="sg-title">Data Platforms &amp; Databases</div>
+      <div class="tags">
+        <span class="tag a4">Snowflake</span><span class="tag a4">Databricks</span>
+        <span class="tag a4">MongoDB</span><span class="tag a4" >SQL Server</span>
+        <span class="tag">PostgreSQL</span><span class="tag a4">Data Warehousing</span>
+        <span class="tag a4">Git</span><span class="tag a4">Statistical Analysis</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header reveal">
+    <div class="sec-label">Projects</div>
+    <h2>Selected work</h2>
+  </div>
+
+  <div class="proj-tabs reveal">
+    <button class="ptab active" data-tab="bi"><span class="tdot"></span>Dashboards</button>
+    <button class="ptab" data-tab="ml"><span class="tdot"></span>ML Projects</button>
+    <button class="ptab" data-tab="nlp"><span class="tdot"></span>NLP Projects</button>
+    <button class="ptab" data-tab="gen"><span class="tdot"></span>Generative AI</button>
+  </div>
+
+  <!-- BI -->
+  <div class="proj-panel active" id="panel-bi">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:var(--g1);border:1px solid rgba(56,189,248,.18)">📊</div>
+      <div><div class="cat-title" style="color:var(--c1)">BI &amp; Dashboards</div><div class="cat-sub">Power BI · Microsoft Fabric · SharePoint · DAX · KPI Tracking</div></div>
+    </div>
+    <div class="proj-list">
+      <div class="proj-row bi-row" onclick="openModal('bi-a')">
+        <div class="pl">A</div>
+        <div class="proj-thumb"><img src='images/Scurve.png' alt="S-Curve" onerror="this.parentElement.innerHTML='<div class=\'proj-thumb-ph\'>📈</div>'"/></div>
+        <div class="proj-info">
+          <div class="proj-name">Project Tracking S S-Curve</div>
+          <div class="proj-tags"><span class="proj-tag">Power BI</span><span class="proj-tag">Fabric</span><span class="proj-tag">S-Curve</span><span class="proj-tag">Forecasting</span></div>
+        </div>
+        <span class="proj-arrow">→</span>
+      </div>
+ 
+      <div class="proj-row bi-row" onclick="openModal('bi-b')">
+        <div class="pl">B</div>
+        <div class="proj-thumb"><img src="images/sales-analysis-1.png" alt="Sales Analysis" onerror="this.parentElement.innerHTML='<div class=\'proj-thumb-ph\'>🛒</div>'"/></div>
+        <div class="proj-info">
+          <div class="proj-name">Sales Analysis — ABC Retail Store</div>
+          <div class="proj-tags"><span class="proj-tag">Power BI</span><span class="proj-tag">Bookmarks</span><span class="proj-tag">Drill-through</span><span class="proj-tag">Field Parameters</span></div>
+        </div>
+        <span class="proj-arrow">→</span>
+      </div>
+      <div class="proj-row bi-row" onclick="openModal('bi-c')">
+        <div class="pl">C</div>
+        <div class="proj-thumb"><img src="images/ma05-dashboard.png" alt="MA05 Dashboard" onerror="this.parentElement.innerHTML='<div class=\'proj-thumb-ph\'>🏗️</div>'"/></div>
+        <div class="proj-info">
+          <div class="proj-name">MA05 Issues &amp; Checklist Dashboard</div>
+          <div class="proj-tags"><span class="proj-tag">Power BI</span><span class="proj-tag">Issue Tracking</span><span class="proj-tag">Checklists</span><span class="proj-tag">Functional Test</span></div>
+        </div>
+        <span class="proj-arrow">→</span>
+      </div>
+      <div class="proj-row bi-row" onclick="openModal('bi-d')">
+        <div class="pl">D</div>
+        <div class="proj-thumb"><div class="proj-thumb-ph">🧠</div></div>
+        <div class="proj-info">
+          <div class="proj-name">AI Data Analytics</div>
+          <div class="proj-tags"><span class="proj-tag">Power BI</span><span class="proj-tag">AI</span><span class="proj-tag">Data Analytics</span><span class="proj-tag">GitHub</span></div>
+        </div>
+        <span class="proj-arrow">→</span>
+      </div>
+      <div class="proj-row bi-row" onclick="openModal('bi-e')">
+        <div class="pl">D</div>
+        <div class="proj-thumb"><img src="images/Sale_excel.png" alt="Sales_Dashboard" onerror="this.parentElement.innerHTML='<div class=\'proj-thumb-ph\'>📈</div>'"/></div>
+        <div class="proj-info">
+          <div class="proj-name">Sales Dashboard-Excel</div>
+          <div class="proj-tags"><span class="proj-tag">Excel</span><span class="proj-tag">Dashboard</span><span class="proj-tag">Pivot Table</span><span class="proj-tag">Sales Analysis</span></div>
+        </div>
+        <span class="proj-arrow">→</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ML -->
+  <div class="proj-panel" id="panel-ml">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:var(--g2);border:1px solid rgba(129,140,248,.18)">🤖</div>
+      <div><div class="cat-title" style="color:var(--c2)">Machine Learning</div><div class="cat-sub">Random Forest · XGBoost · LSTM · Prophet · Predictive Analytics</div></div>
+    </div>
+    <div class="proj-list">
+      <div class="proj-row ml-row" onclick="openModal('ml-a')">
+        <div class="pl">A</div>
+        <div class="proj-thumb"><div class="proj-thumb-ph">⏱</div></div>
+        <div class="proj-info">
+          <div class="proj-name">Project Delay Forecasting Model (LSTM + Prophet)</div>
+          <div class="proj-tags"><span class="proj-tag">LSTM</span><span class="proj-tag">Prophet</span><span class="proj-tag">Time-series</span><span class="proj-tag">85% accuracy</span></div>
+        </div>
+        <span class="proj-arrow">→</span>
+      </div>
+      <div class="proj-row ml-row" onclick="openModal('ml-b')">
+        <div class="pl">B</div>
+        <div class="proj-thumb"><div class="proj-thumb-ph">🏭</div></div>
+        <div class="proj-info">
+          <div class="proj-name">Missing Manufacturer Prediction &amp; Standardisation</div>
+          <div class="proj-tags"><span class="proj-tag">XGBoost</span><span class="proj-tag">Random Forest</span><span class="proj-tag">Classification</span><span class="proj-tag">90% accuracy</span></div>
+        </div>
+        <span class="proj-arrow">→</span>
+      </div>
+      <div class="proj-row ml-row" onclick="openModal('ml-c')">
+        <div class="pl">C</div>
+        <div class="proj-thumb"><div class="proj-thumb-ph">🔧</div></div>
+        <div class="proj-info">
+          <div class="proj-name">Predictive Maintenance — Equipment Uptime Model</div>
+          <div class="proj-tags"><span class="proj-tag">Scikit-learn</span><span class="proj-tag">Fabric Notebooks</span><span class="proj-tag">+25% uptime</span></div>
+        </div>
+        <span class="proj-arrow">→</span>
+      </div>
+      <div class="proj-row ml-row" onclick="openModal('ml-d')">
+        <div class="pl">D</div>
+        <div class="proj-thumb"><div class="proj-thumb-ph">⚙️</div></div>
+        <div class="proj-info">
+          <div class="proj-name">Automated ETL Pipeline — API to Fabric Lakehouse</div>
+          <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Azure Data Factory</span><span class="proj-tag">Dataflows Gen2</span><span class="proj-tag">10K+ records/day</span></div>
+        </div>
+        <span class="proj-arrow">→</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- NLP -->
+  <div class="proj-panel" id="panel-nlp">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:var(--g3);border:1px solid rgba(52,211,153,.18)">💬</div>
+      <div><div class="cat-title" style="color:var(--c3)">NLP Projects</div><div class="cat-sub">BERT · TF-IDF · CBOW · Transformers · Text Classification</div></div>
+    </div>
+    <div class="proj-list">
+      <div class="proj-row nlp-row" onclick="openModal('nlp-a')">
+        <div class="pl">A</div>
+        <div class="proj-thumb"><div class="proj-thumb-ph">🔎</div></div>
+        <div class="proj-info">
+          <div class="proj-name">Equipment Issue Classification using BERT</div>
+          <div class="proj-tags"><span class="proj-tag">BERT</span><span class="proj-tag">Transformers</span><span class="proj-tag">Issue Classification</span><span class="proj-tag">-30% resolution time</span></div>
+        </div>
+        <span class="proj-arrow">→</span>
+      </div>
+      <div class="proj-row nlp-row" onclick="openModal('nlp-b')">
+        <div class="pl">B</div>
+        <div class="proj-thumb"><div class="proj-thumb-ph">📋</div></div>
+        <div class="proj-info">
+          <div class="proj-name">Issue Chance Prediction — TF-IDF &amp; CBOW Pipeline</div>
+          <div class="proj-tags"><span class="proj-tag">TF-IDF</span><span class="proj-tag">CBOW</span><span class="proj-tag">NLP</span><span class="proj-tag">Risk Scoring</span></div>
+        </div>
+        <span class="proj-arrow">→</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- GEN AI -->
+  <div class="proj-panel" id="panel-gen">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:var(--g4);border:1px solid rgba(251,146,60,.18)">✨</div>
+      <div><div class="cat-title" style="color:var(--c4)">Generative AI</div><div class="cat-sub">LLMs · RAG · Agentic AI · Prompt Engineering · LangChain</div></div>
+    </div>
+    <div class="proj-list">
+      <div class="proj-row gen-row" onclick="openModal('gen-a')">
+        <div class="pl">A</div>
+        <div class="proj-thumb"><div class="proj-thumb-ph">🤖</div></div>
+        <div class="proj-info">
+          <div class="proj-name">RAG-based Document Q&amp;A Chatbot</div>
+          <div class="proj-tags"><span class="proj-tag">RAG</span><span class="proj-tag">LangChain</span><span class="proj-tag">LLM</span><span class="proj-tag">Vector DB</span></div>
+        </div>
+        <span class="proj-arrow">→</span>
+      </div>
+      <div class="proj-row gen-row" onclick="openModal('gen-b')">
+        <div class="pl">B</div>
+        <div class="proj-thumb"><div class="proj-thumb-ph">⚡</div></div>
+        <div class="proj-info">
+          <div class="proj-name">Agentic AI Workflow Automation</div>
+          <div class="proj-tags"><span class="proj-tag">Agentic AI</span><span class="proj-tag">Prompt Engineering</span><span class="proj-tag">Python</span><span class="proj-tag">Automation</span></div>
+        </div>
+        <span class="proj-arrow">→</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-header reveal">
+    <div class="sec-label">Certifications</div>
+    <h2>Credentials</h2>
+  </div>
+  <div class="certs-grid">
+    <div class="cert reveal"><div class="cert-badge">🎓</div><div><div class="cert-name">Certified Data Scientist</div><div class="cert-org">IABAC</div></div></div>
+    <div class="cert reveal"><div class="cert-badge">📊</div><div><div class="cert-name">KHDA Certification in Excel</div><div class="cert-org">KHDA · Dubai</div></div></div>
+    <div class="cert reveal"><div class="cert-badge">☁️</div><div><div class="cert-name">Microsoft Azure Fundamentals — AI-900</div><div class="cert-org">Microsoft</div></div></div>
+    <div class="cert reveal"><div class="cert-badge">✨</div><div><div class="cert-name">Generative AI Completion Certificate</div><div class="cert-org">Professional Development</div></div></div>
+    <div class="cert reveal"><div class="cert-badge">💬</div><div><div class="cert-name">NLP Completion Certificate</div><div class="cert-org">Professional Development</div></div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header reveal">
+    <div class="sec-label">Contact</div>
+    <h2>Let's work together</h2>
+  </div>
+  <div class="contact-wrap">
+    <div class="reveal">
+      <p class="contact-info" style="font-size:.93rem;color:var(--text2);font-weight:300;margin-bottom:1.8rem;line-height:1.8">
+        Open to full-time roles in <strong style="color:var(--text)">Data Analytics, BI Development, ML Engineering</strong>, or <strong style="color:var(--text)">Generative AI</strong> across Dubai and the UAE. Also available for freelance and contract projects. Spouse Visa — no sponsorship delay. Usually respond within 24 hours.
+      </p>
+      <div class="clinks">
+        <a href="mailto:najmansar15@gmail.com" class="clink"><span class="clink-ic">✉</span>najmansar15@gmail.com</a>
+        <a href="tel:+971555875520" class="clink"><span class="clink-ic">📱</span>+971 555 875 520</a>
+        <a href="https://www.linkedin.com/in/najma-shanija/" target="_blank" class="clink"><span class="clink-ic" style="font-size:.7rem;font-weight:600">in</span>LinkedIn Profile</a>
+        <a href="https://github.com/najupshan" target="_blank" class="clink">
+          <span class="clink-ic"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></span>
+          GitHub Profile
+        </a>
+      </div>
+    <form class="cf reveal" action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
+      <div class="fg"><label for="fn">NAME</label><input type="text" name="name" id="fn" placeholder="Your name" required/></div>
+      <div class="fg"><label for="fe">EMAIL</label><input type="email" name="email" id="fe" placeholder="your@email.com" required/></div>
+      <div class="fg"><label for="fm">MESSAGE</label><textarea name="message" id="fm" placeholder="Tell me about the role or project..." required></textarea></div>
+      <button type="submit" class="btn btn-p" style="align-self:flex-start">Send Message →</button>
+    </form>
+    </div>
+  </div>
+</section>
+</div>
+
+<footer>
+  <div class="container">© 2025 Najma Shanija · Data Analyst | BI Analyst | ML Engineer | LLM/RAG/Agentic AI Enthusiast · Dubai, UAE · GitHub Pages</div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <div class="modal-img-wrap" id="modalImgWrap">
+      <button class="modal-close" onclick="closeModalDirect()">✕</button>
+      <span class="modal-badge" id="modalBadge"></span>
+    </div>
+    <div class="modal-body">
+      <div class="modal-label" id="modalLabel"></div>
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="modal-desc" id="modalDesc"></div>
+      <div class="modal-tags" id="modalTags"></div>
+      <div class="modal-actions" id="modalActions"></div>
+      <div class="modal-note" id="modalNote"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════
+   PROJECT DATA — edit here to update any project
+   img: filename in same folder as index.html
+   github: set to '' to hide button
+   demo: live link or '' to hide
+   ══════════════════════════════════════════════ */
+const P = {
+  'bi-a':{cat:'bi',badge:'Power BI · Microsoft Fabric',label:'BI Dashboard · Project A',
+    title:'Combined Tag Weight S-Curve Progress Dashboard',
+    desc:'Live S-Curve dashboard tracking planned vs actual tag weight completion across 33 weeks. Shows total weight (1042), completed workdays (110/166), days left (55), forecasted completion date (31/10/2025), and current achievement (94.16%). Data is fetched via API, stored in Microsoft Fabric Lakehouse (OneLake), cleaned with Python, and refreshed via Power BI Service Gateway. Deployed to SharePoint for stakeholder access without Power BI licenses.',
+    tags:['Power BI','Microsoft Fabric','OneLake','S-Curve','Forecasting','SharePoint','DAX','Gateway Refresh'],
+    img:'images/Scurve.png',icon:'📈',github:'',demo:''},
+  
+
+  'ml-a':{cat:'ml',badge:'Machine Learning · Time-Series',label:'ML Project · A',
+    title:'Project Delay Forecasting Model (LSTM + Prophet)',
+    desc:'Time-series forecasting pipeline predicting project completion delays and early finishes. LSTM captures long-term temporal patterns while Prophet handles seasonality and trend decomposition. Achieved ~85% forecast accuracy on held-out project data. Outputs feed directly into the S-Curve Power BI dashboard as "Forecasted Weight to Complete" line, enabling proactive risk mitigation for project managers.',
+    tags:['LSTM','Prophet','ARIMA','Time-Series','Forecasting','Python','Pandas','Fabric Notebooks','~85% accuracy'],
+    img:'',icon:'⏱',github:'',demo:''},
+  'ml-b':{cat:'ml',badge:'Machine Learning · Classification',label:'ML Project · B',
+    title:'Missing Manufacturer Prediction & Standardisation',
+    desc:'Classification pipeline to predict and standardise missing manufacturer data across 50+ vendor datasets. Used XGBoost and Random Forest with feature engineering on equipment type, discipline, and historical manufacturer patterns. Improved data consistency by 90%, dramatically enhancing enterprise reporting accuracy and enabling reliable equipment master data across the Fabric Lakehouse.',
+    tags:['XGBoost','Random Forest','Classification','Data Standardisation','Scikit-learn','Pandas','90% consistency'],
+    img:'',icon:'🏭',github:'',demo:''},
+  'ml-c':{cat:'ml',badge:'Machine Learning · Predictive Maintenance',label:'ML Project · C',
+    title:'Predictive Maintenance — Equipment Uptime Model',
+    desc:'Predictive maintenance model trained in Microsoft Fabric Notebooks using Python and Scikit-learn. Analyses historical maintenance records, equipment age, discipline, and issue frequency to predict failure probability. Improved equipment uptime by 25% and reduced downtime-related costs. Model scores are integrated into the Issue Analysis Power BI dashboard for real-time maintenance prioritisation.',
+    tags:['Scikit-learn','Random Forest','Predictive Maintenance','Fabric Notebooks','Python','+25% uptime'],
+    img:'',icon:'🔧',github:'',demo:''},
+  'ml-d':{cat:'ml',badge:'Data Engineering · ETL',label:'ML Project · D',
+    title:'Automated ETL Pipeline — API to Fabric Lakehouse',
+    desc:'Full end-to-end data pipeline: REST API data fetching → primary cleaning with Python (Pandas) → ingestion into Microsoft Fabric Lakehouse (OneLake) → Dataflows Gen2 transformation → Semantic Model → Power BI Service refresh via On-Premises Gateway. Processes 10,000+ records daily from 3+ disparate sources with zero manual intervention. Azure Data Factory orchestrates pipeline scheduling and monitoring.',
+    tags:['REST API','Python','Pandas','Microsoft Fabric','OneLake','Azure Data Factory','Dataflows Gen2','Power BI Gateway','10K+ records/day'],
+    img:'',icon:'⚙️',github:'',demo:''},
+
+  'nlp-a':{cat:'nlp',badge:'NLP · BERT',label:'NLP Project · A',
+    title:'Equipment Issue Classification using BERT',
+    desc:'Fine-tuned BERT model for multi-class classification of equipment issues from free-text maintenance logs. Trained on labelled issue records from the Fabric Lakehouse Issues table. Automated issue categorisation reduced resolution time by 30% by routing issues to the correct team instantly. Classifications are surfaced in the Issue Analysis Power BI dashboard in real-time.',
+    tags:['BERT','Transformers','Hugging Face','Text Classification','NLP','Python','Issue Categorisation','-30% resolution time'],
+    img:'',icon:'🔎',github:'',demo:''},
+  'nlp-b':{cat:'nlp',badge:'NLP · Risk Scoring',label:'NLP Project · B',
+    title:'Issue Chance Prediction — TF-IDF & CBOW Pipeline',
+    desc:'NLP risk scoring pipeline using TF-IDF and CBOW word embeddings to predict the probability of equipment issues occurring on future tasks. Trained on historical issue text and equipment metadata. Outputs a risk score per equipment/task combination that feeds into the preventive maintenance dashboard, enabling proactive scheduling before issues arise.',
+    tags:['TF-IDF','CBOW','Word Embeddings','Risk Scoring','NLP','Python','Predictive Analytics'],
+    img:'',icon:'📋',github:'',demo:''},
+
+  'bi-b':{cat:'bi',badge:'Power BI · Retail Analytics',label:'BI Dashboard · Project B',
+    title:'Sales Analysis Dashboard — ABC Retail Store',
+    desc:`<strong>4-page interactive Power BI report</strong> analysing $10.98M revenue, 10,000+ orders, 795 customers and 100% retention rate across retail channels.<br><br>
+<strong>Page 1 — Sales Analysis:</strong> Revenue trends, order volume, top products, and sales by channel with dynamic slicers for Category, Channel, Region, and ReturnFlag.<br>
+<strong>Page 2 — Profitability & Region:</strong> Discount vs return rate analysis, region-wise revenue breakdown, gross margin KPIs, and regional performance comparison.<br>
+<strong>Page 3 — Customer Analysis:</strong> Customer segmentation, retention metrics, purchase frequency distribution, and CLV (Customer Lifetime Value) trends.<br>
+<strong>Page 4 — Sales Report:</strong> YOY growth table, market summary, critical actions, and executive-level export-ready report.<br><br>
+<strong>Power BI Features Used:</strong><br>
+• <strong>Bookmarks</strong> — Page navigation buttons and state toggles for switching views without extra pages.<br>
+• <strong>Drill-through</strong> — Click any product or region to drill into detail pages for deeper analysis.<br>
+• <strong>Tooltips</strong> — Custom tooltip pages showing sparklines and KPI breakdowns on hover.<br>
+• <strong>Field Parameters</strong> — Dynamic axis switching so users can toggle between metrics (Revenue, Orders, Margin) without rebuilding visuals.`,
+    tags:['Power BI','Bookmarks','Drill-through','Tooltips','Field Parameters','DAX','Retail Analytics','YOY Growth','Customer Analysis'],
+    imgs:['images/sales-analysis-1.png','images/sales-analysis-2.png','images/sales-analysis-3.png','images/sales-analysis-4.png'],
+    imgLabels:['Page 1 — Sales Analysis','Page 2 — Profitability & Region','Page 3 — Customer Analysis','Page 4 — Sales Report'],
+    icon:'🛒',github:'',demo:''},
+  'bi-c':{cat:'bi',badge:'Power BI ·',label:'BI Dashboard · Project C',
+    title:'MA05-Issues & Checklist Dashboard',
+    desc:`<strong>Internal operational dashboard</strong> built for data centre project, tracking live issue status and checklist completion across disciplines.<br><br>
+<strong>Issues View:</strong> Breakdown of open issues by priority (CX P1, P2, P3 and DCOS P1, P2, P3), equipment type, and resolution status. Enables the operations team to identify and prioritise critical punch items quickly.<br><br>
+<strong>Dashboard View:</strong> Donut chart showing 367 total checklists by completion status, combined with Issues and Functional Test counts per system. Provides a single-pane view of project readiness across all commissioning activities.<br><br>
+<em>Note: Screenshots shown without live data to protect project confidentiality.</em>`,
+    tags:['Power BI','Issue Tracking','Checklist Analysis','Functional Test','ABL Technical','Commissioning','KPI','DAX'],
+    imgs:['images/ma05-dashboard.png','images/ma05-issues.png','images/ma05-report.png'],
+    imgLabels:['Dashboard & Checklist View','Issues Priority View'],
+    icon:'🏗️',github:'',demo:''},
+
+  'bi-d':{cat:'bi',badge:'AI · Data Analytics',label:'BI Dashboard · D',
+    title:'AI Data Analytics',
+    desc:'Developed an AI-assisted retail analytics workflow to process sales data, calculate business KPIs, and identify anomalies in retail performance.Automated KPI analysis covering sales, profit, profit margin, and product/category performance using Excel-based analytics.Integrated AI agents to generate natural-language insights, summarize anomalies, and produce structured business reports.Designed an Excel reporting workflow to present key findings and support data-driven retail decisions.',
+    tags:['Python','AI','Data Analytics','Pandas','NumPy','Scikit-learn','Machine Learning','GitHub'],
+    img:'',icon:'🧠',github:'https://github.com/najupshan/AI-Data-Analytics',demo:''},
+  
+  'bi-e':{cat:'bi',badge:'Power BI · Microsoft Fabric',label:'Excel',
+    title:'Sales Dashboard using Excel',
+    desc:'Developed an E-Commerce Sales Dashboard using Power BI to analyze sales performance, customer behavior, product trends, and order status.Created KPI cards to track total sales, total customers, total orders, total profit, average order sales, and average customer ratings.Designed a monthly sales trend chart to monitor sales performance and identify high- and low-performing months.Analyzed sales by product category and state using donut charts and treemaps to identify key revenue contributors.Built Top 10 Product and Top 10 Customer reports to identify best-selling products and high-value customers.Visualized payment methods and order statuses, with interactive filters for month and gender, enabling users to explore sales data and make data-driven business decisions.',
+    tags:['Excel','Power_Query','Pivot Table','Refresh','Charts'],
+    img:'images/Sale_excel.png',icon:'📈',github:'',demo:''},
+
+  'gen-a':{cat:'gen',badge:'Generative AI · RAG',label:'Gen AI · Project A',
+    title:'RAG-based Document Q&A Chatbot',
+    desc:'Retrieval-Augmented Generation chatbot that answers questions from internal project documents and reports. Built with LangChain, vector embeddings (FAISS/ChromaDB), and an LLM backbone. Enables teams to query project status reports, checklists, and SOPs in plain English — reducing time spent searching documents manually.',
+    tags:['RAG','LangChain','LLM','Vector DB','FAISS','Prompt Engineering','Python','AI Automation'],
+    img:'',icon:'🤖',github:'',demo:''},
+  'gen-b':{cat:'gen',badge:'Generative AI · Agentic AI',label:'Gen AI · Project B',
+    title:'Agentic AI Workflow Automation',
+    desc:'Multi-step agentic AI system that autonomously plans, executes, and reviews data analysis tasks using tool-calling LLMs. The agent can query databases, run Python analysis, generate visualisations, and summarise findings — reducing manual analytical workload and demonstrating how Agentic AI can transform data operations.',
+    tags:['Agentic AI','LLM','Tool Calling','Prompt Engineering','Python','LangChain','AI Agents','Automation'],
+    img:'',icon:'⚡',github:'',demo:''}
+};
+
+const BADGE_STYLE={
+  bi:'background:rgba(56,189,248,.16);color:var(--c1);border:1px solid rgba(56,189,248,.26)',
+  ml:'background:rgba(129,140,248,.16);color:var(--c2);border:1px solid rgba(129,140,248,.26)',
+  nlp:'background:rgba(52,211,153,.16);color:var(--c3);border:1px solid rgba(52,211,153,.26)',
+  gen:'background:rgba(251,146,60,.16);color:var(--c4);border:1px solid rgba(251,146,60,.26)'
+};
+const BTN_BG={bi:'var(--c1)',ml:'var(--c2)',nlp:'var(--c3)',gen:'var(--c4)'};
+
+function openModal(id){
+  const p=P[id]; if(!p) return;
+  const wrap=document.getElementById('modalImgWrap');
+  // Clear previous content except close btn and badge
+  wrap.querySelectorAll('img,.modal-img-ph,.gallery-wrap').forEach(el=>el.remove());
+
+  const imgs = p.imgs || (p.img ? [p.img] : []);
+
+  if(imgs.length > 1){
+    // Multi-image gallery
+    const pages = p.imgLabels || imgs.map((_,i)=>`Page ${i+1}`);
+    let cur=0;
+    const gw=document.createElement('div'); gw.className='gallery-wrap';
+    const track=document.createElement('div'); track.className='gallery-track';
+    imgs.forEach(src=>{const im=document.createElement('img');im.src=src;im.alt=p.title;track.appendChild(im)});
+    const dots=document.createElement('div'); dots.className='gallery-dots';
+    imgs.forEach((_,i)=>{const d=document.createElement('div');d.className='gallery-dots';const dot=document.createElement('div');dot.className='gdot'+(i===0?' active':'');dot.onclick=()=>goTo(i);dots.appendChild(dot)});
+    const lbl=document.createElement('div'); lbl.className='gallery-label'; lbl.textContent=pages[0];
+    const prev=document.createElement('button'); prev.className='gallery-nav gallery-prev'; prev.innerHTML='‹';
+    const next=document.createElement('button'); next.className='gallery-nav gallery-next'; next.innerHTML='›';
+    function goTo(n){cur=(n+imgs.length)%imgs.length;track.style.transform=`translateX(-${cur*100}%)`;lbl.textContent=pages[cur];dots.querySelectorAll('.gdot').forEach((d,i)=>d.classList.toggle('active',i===cur));}
+    prev.onclick=()=>goTo(cur-1); next.onclick=()=>goTo(cur+1);
+    gw.appendChild(track); gw.appendChild(prev); gw.appendChild(next); gw.appendChild(lbl);
+    wrap.insertBefore(gw,wrap.firstChild);
+    wrap.insertBefore(dots,wrap.children[1]);
+  } else if(imgs.length===1){
+    const img=document.createElement('img'); img.src=imgs[0]; img.alt=p.title;
+    img.onerror=function(){this.remove();addPh(p.icon,'')};
+    wrap.insertBefore(img,wrap.firstChild);
+  } else { addPh(p.icon,''); }
+
+  function addPh(icon){
+    const ph=document.createElement('div'); ph.className='modal-img-ph';
+    ph.innerHTML=`<span>${icon}</span>`;
+    wrap.insertBefore(ph,wrap.firstChild);
+  }
+  document.getElementById('modalBadge').textContent=p.badge;
+  document.getElementById('modalBadge').style.cssText=BADGE_STYLE[p.cat];
+  document.getElementById('modalLabel').textContent=p.label;
+  document.getElementById('modalTitle').textContent=p.title;
+  document.getElementById('modalDesc').innerHTML=p.desc;
+  document.getElementById('modalTags').innerHTML=p.tags.map(t=>`<span class="tag">${t}</span>`).join('');
+  const note = p.github==='' && p.demo==='' ? '' : '';
+  document.getElementById('modalNote').textContent=note;
+  document.getElementById('modalActions').innerHTML=
+    (p.github?`<a href="${p.github}" target="_blank" class="modal-btn modal-btn-gh">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      View Code on GitHub</a>`:'') +
+    (p.demo?`<a href="${p.demo}" target="_blank" class="modal-btn modal-btn-live" style="background:${BTN_BG[p.cat]}">▶ Live Demo</a>`:'');
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(e){if(e.target===document.getElementById('modalOverlay'))closeModalDirect()}
+function closeModalDirect(){document.getElementById('modalOverlay').classList.remove('open');document.body.style.overflow=''}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModalDirect()});
+
+/* Tabs */
+document.querySelectorAll('.ptab').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.proj-panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-'+btn.dataset.tab).classList.add('active');
+  });
+});
+
+/* Nav active */
+document.querySelectorAll('section[id]').forEach(s=>
+  new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){
+    document.querySelectorAll('.nav-links a').forEach(l=>l.classList.remove('active'));
+    const a=document.querySelector(`.nav-links a[href="#${en.target.id}"]`);
+    if(a)a.classList.add('active');
+  }})},{threshold:.3}).observe(s));
+
+/* Reveal */
+const ro=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');ro.unobserve(en.target)}})},{threshold:.07,rootMargin:'0px 0px -28px 0px'});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=`${(i%4)*.06}s`;ro.observe(el)});
+</script>
+</body>
+</html>
